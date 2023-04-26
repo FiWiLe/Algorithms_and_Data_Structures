@@ -1,33 +1,33 @@
-def merge_sort(list):
+def merge_sort(values: list[int]) -> list[int]:
     """
     Sorts a list in ascending order
     Returns new list
     """
 
-    if len(list) <= 1:
-        return list
+    if len(values) <= 1:
+        return values
 
-    left_half, right_half = split(list)
+    left_half, right_half = split(values)
     left = merge_sort(left_half)
     right = merge_sort(right_half)
 
     return merge(left, right)
 
 
-def split(list):
+def split(values: list[int]) -> tuple[list[int], list[int]]:
     """
     Divide the unsorted list at midpoint into sublists
     Returns two sublists - left and right halfs
     """
 
-    mid = len(list) // 2
-    left = list[:mid]
-    right = list[mid:]
+    mid = len(values) // 2
+    left = values[:mid]
+    right = values[mid:]
 
     return left, right
 
 
-def merge(left, right):
+def merge(left: list[int], right: list[int]) -> list[int]:
     """
     Merges two lists (arrays) and sorting them
     Returns a new merged list
